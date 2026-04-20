@@ -10,3 +10,9 @@ slideshow.forEach((slide) => {
       }, 5000);
     }
 });
+
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const email = document.getElementById('email');
+const submitBtn = document.getElementById('formbtn');
+
