@@ -46,35 +46,35 @@
         </section>
         <section class="container mx-auto px-4 py-8 bg-white-50 dark:bg-gray-800 rounded-lg">
             <h2 class="text-3xl text-bold text-center dark:text-gray-400">A simple form with validation.</h2>
-            <div class="flex justify-center mt-4  p-6 rounded-lg shadow-lg align-items-center">
+            <div class="flex justify-center mt-4 p-2 rounded-lg shadow-lg align-items-center">
                 <form id="form" class="text-2xl font-base text-gray-300 grid grid-cols-1 gap-y-3 w-full md:w-1/2">
 
                     <!--Username label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="username" class="rounded-lg bg-mist-700 text-center text-bold" >Username:</label>
                     <input type="text" name="username" id="username" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
-                    <p class="error hidden" id="username-error"></p>
+                    <p class="error hidden text-center text-base text-red-500 py-2" id="username-error"></p>
                     </div>
                     
                     <!--Email label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="email" class="rounded-lg bg-mist-700 text-center text-bold">Email:</label>
                     <input type="text" id="email" name="email" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
-                    <p class="error hidden" id="email-error"></p>
+                    <p class="error hidden text-center text-base text-red-500 py-2" id="email-error"></p>
                     </div>
                     
                     <!--Password label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="password" class="rounded-lg bg-mist-700 text-center text-bold">Password:</label>
                     <input type="password" id="password" name="password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
-                    <p class="error hidden" id="password-error"></p>
+                    <p class="error hidden text-center text-base text-red-500 py-2" id="password-error"></p>
                     </div>
 
                     <!--Recheck the Password-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="confirm-password" class="rounded-lg bg-mist-700 text-center text-bold">Confirm Password:</label>
                         <input type="password" id="confirm-password" name="confirm-password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
-                        <p class="error hidden" id="confirm-password-error"></p>
+                        <p class="error hidden text-center text-base text-red-500 py-2" id="confirm-password-error"></p>
                     </div>
 
                     <button id="formbtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Submit</button>
