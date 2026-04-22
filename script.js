@@ -26,12 +26,21 @@ const cnfpassword = document.getElementById('confirm-password');
 const submitBtn = document.getElementById('formbtn');
 const form = document.querySelector('form');
 
+const nameError = document.getElementById('username-error');
+const emailError = document.getElementById('email-error');
+const passwordError = document.getElementById('password-error');
+const cnfPasswordError = document.getElementById('confirm-password-error');
+
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (re.test(email)) {
+        if(emailError.classList.contains('hidden') == false){
+            emailError.classList.add('hidden');
+        }
         return true;
     } else {
-        alert('Invalid email address');
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.classList.remove('hidden');
         return false;
     }
 }
@@ -39,26 +48,54 @@ function validateEmail(email) {
 function validatePassword(password) {
     const pwd = password;
     const rePwd = cnfpassword.value;
-    if (pwd.length < 8) { alert('Password must be at least 8 characters long'); return false; }
-    else if (!/[A-Z]/.test(pwd)) { alert('Password must contain at least one uppercase letter'); return false; }
-    else if (!/[a-z]/.test(pwd)) { alert('Password must contain at least one lowercase letter'); return false; }
-    else if (!/[0-9]/.test(pwd)) { alert('Password must contain at least one digit'); return false; }
-    else if (!/[@$!%*?&]/.test(pwd)) { alert('Password must contain at least one special character'); return false; }
-    else if (pwd !== rePwd) { alert('Passwords do not match'); return false; }
-    else return true;
+    if (pwd.length < 8) { 
+        passwordError.textContent = 'Password must be at least 8 characters long';
+         passwordError.classList.remove('hidden'); return false; }
+    else if (!/[A-Z]/.test(pwd)) { 
+        passwordError.textContent = 'Password must contain at least one uppercase letter'; 
+        passwordError.classList.remove('hidden'); return false; 
+    }
+    else if (!/[a-z]/.test(pwd)) { 
+        passwordError.textContent = 'Password must contain at least one lowercase letter'; 
+        passwordError.classList.remove('hidden'); return false; 
+    }
+    else if (!/[0-9]/.test(pwd)) { 
+        passwordError.textContent = 'Password must contain at least one digit'; 
+        passwordError.classList.remove('hidden'); return false; 
+    }
+    else if (!/[@$!%*?&]/.test(pwd)) { 
+        passwordError.textContent = 'Password must contain at least one special character'; 
+        passwordError.classList.remove('hidden'); return false; 
+    }
+    else if (pwd !== rePwd) { 
+        cnfPasswordError.textContent = 'Passwords do not match'; 
+        cnfPasswordError.classList.remove('hidden'); return false; 
+    }
+    else {
+        if(passwordError.classList.contains('hidden') == false){
+            passwordError.classList.add('hidden');
+        }
+        return true;
+    }
 }
 
 function validateUsername(name) {
     if (name.value.trim() === '') {
-        alert('name is required');
+        nameError.textContent = 'Name is required';
+        nameError.classList.remove('hidden');
         return false;
     } else if (name.value.length < 3) {
-        alert('name must be at least 3 characters long');
+        nameError.textContent = 'Name must be at least 3 characters long';
+        nameError.classList.remove('hidden');
         return false;
     } else if (name.value.length > 20) {
-        alert('name must be at most 20 characters long');
+        nameError.textContent = 'Name must be at most 20 characters long';
+        nameError.classList.remove('hidden');
         return false;
     } else{
+        if(nameError.classList.contains('hidden') == false){
+            nameError.classList.add('hidden');
+        }
         return true;
     }
 }

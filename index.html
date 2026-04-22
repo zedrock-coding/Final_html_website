@@ -8,9 +8,9 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 pb-10">
     <header>
-        <nav class="relative flex w-full flex-nowrap items-center justify-between bg-zinc-50 py-2 text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-700 lg:flex-wrap lg:justify-start lg:py-4" data-twe-navbar-ref>
-           <div class="flex w-full flex-wrap justify-between px-3">
-            <div class="ms-2">
+        <nav class="relative flex w-full flex-nowrap items-center bg-zinc-50 py-2 text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-700 lg:flex-wrap lg:py-4" data-twe-navbar-ref>
+           <div class="flex w-full flex-wrap items-center justify-center px-3">
+            <div>
                 <a href="#" class="text-xl text-black dark:text-white">My Website</a>
             </div>
            </div> 
@@ -53,24 +53,28 @@
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="username" class="rounded-lg bg-mist-700 text-center text-bold" >Username:</label>
                     <input type="text" name="username" id="username" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                    <p class="error hidden" id="username-error"></p>
                     </div>
                     
                     <!--Email label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="email" class="rounded-lg bg-mist-700 text-center text-bold">Email:</label>
                     <input type="text" id="email" name="email" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                    <p class="error hidden" id="email-error"></p>
                     </div>
                     
                     <!--Password label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="password" class="rounded-lg bg-mist-700 text-center text-bold">Password:</label>
                     <input type="password" id="password" name="password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                    <p class="error hidden" id="password-error"></p>
                     </div>
 
                     <!--Recheck the Password-->
                     <div class="grid grid-cols-2 gap-x-4">
                         <label for="confirm-password" class="rounded-lg bg-mist-700 text-center text-bold">Confirm Password:</label>
                         <input type="password" id="confirm-password" name="confirm-password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                        <p class="error hidden" id="confirm-password-error"></p>
                     </div>
 
                     <button id="formbtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Submit</button>
