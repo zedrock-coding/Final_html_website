@@ -11,15 +11,15 @@ var correctBtn;
 function startGame() {
     mainFrame.classList.remove('startFrame');
     mainFrame.classList.add('mainFrame');
-    mainFrame.innerHTML = ''; // Removes the start button from the screen
-    score.innerText = '0';
-    round.innerText = '0';
+    mainFrame.innerHTML = '';
     newRound();
 }
 
 function resetGame(){
     mainFrame.classList.remove('mainFrame');
     mainFrame.classList.add('startFrame');
+    score.innerText = '0';
+    round.innerText = '0';
     mainFrame.innerHTML = `<button class="startBtn" id="start-game">Start Game</button>`;
     document.getElementById('start-game').addEventListener('click', startGame);
 }
