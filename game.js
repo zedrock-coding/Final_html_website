@@ -14,14 +14,14 @@ function startGame() {
     mainFrame.innerHTML = ''; // Removes the start button from the screen
     score.innerText = '0';
     round.innerText = '0';
-    correctBtn = newRound();
+    newRound();
 }
 
 function resetGame(){
     mainFrame.classList.remove('mainFrame');
     mainFrame.classList.add('startFrame');
     mainFrame.innerHTML = `<button class="startBtn" id="start-game">Start Game</button>`;
-
+    document.getElementById('start-game').addEventListener('click', startGame);
 }
 
 function addButtons(){
@@ -41,9 +41,15 @@ function generateCorrectButton(){
 }
 
 function newRound(){
+    // Check if the game has reached 5 rounds before starting a new one
+    if (parseInt(round.innerText) >= 5) {
+        endGame();
+        return;
+    }
     round.innerText = parseInt(round.innerText) + 1;
     addButtons();
     correctBtn = generateCorrectButton();
+    answerCheck(); // Attach listeners to the newly created buttons
     return correctBtn;
 }
 
@@ -61,23 +67,13 @@ function answerCheck(){
     const btns = document.querySelectorAll('.gameBtn');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            if(btn.id == `btn-${correctBtn}`){
-                score.innerHTML = parseInt(score.innerText) + 5;
-                newRound();
+            while(btn.id !== `btn-${correctBtn}`){
+                score.innerText = parseInt(score.innerText) - 1;
+                return;
             }
-            else{
-                score.innerHTML = parseInt(score.innerText) - 1;
-                newRound();
-            }
+            score.innerText = parseInt(score.innerText) + 5;
+            newRound();
         });
     })
 }
-
-startButton.addEventListener('click', () => {
-    for(let k = 0; k < 5; k++){
-        startGame();
-        answerCheck();
-    }
-    endGame();
-    }
-);
+startButton.addEventListener('click', startGame);
