@@ -3,24 +3,33 @@
 //This game will be of 5 rounds after which the player can choose to reset the game or not
 const mainFrame = document.getElementById('main-frame');
 const startButton = document.getElementById('start-game');
+const score = document.getElementById('score');
+const round = document.getElementById('round');
+
+var correctBtn;
 
 function startGame() {
     mainFrame.classList.remove('startFrame');
     mainFrame.classList.add('mainFrame');
-    mainFrame.innerHTML = '';
+    mainFrame.innerHTML = ''; // Removes the start button from the screen
+    score.innerText = '0';
+    round.innerText = '0';
+    correctBtn = newRound();
 }
 
 function resetGame(){
     mainFrame.classList.remove('mainFrame');
     mainFrame.classList.add('startFrame');
     mainFrame.innerHTML = `<button class="startBtn" id="start-game">Start Game</button>`;
+
 }
 
 function addButtons(){
+    mainFrame.innerHTML = ''; // Clears the previous round's buttons
     for(let i = 0; i < 25; i++){
         const button = document.createElement('button');
         button.classList.add('gameBtn');
-        button.id = `${i}`;
+        button.id = `btn-${i}`;
         button.innerText = 'Push Me!';
         mainFrame.appendChild(button);
     }
@@ -30,3 +39,45 @@ function generateCorrectButton(){
     randomBtn = Math.floor(Math.random() * 25);
     return randomBtn;
 }
+
+function newRound(){
+    round.innerText = parseInt(round.innerText) + 1;
+    addButtons();
+    correctBtn = generateCorrectButton();
+    return correctBtn;
+}
+
+function endGame(){
+    mainFrame.classList.remove('mainFrame');
+    mainFrame.classList.add('startFrame');
+    mainFrame.innerHTML = `<button class = "startBtn" id = "endGame">End Game</button>`;
+    const endBtn = document.getElementById('endGame');
+    endBtn.addEventListener('click', () => {
+        resetGame();
+    });
+}
+
+function answerCheck(){
+    const btns = document.querySelectorAll('.gameBtn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if(btn.id == `btn-${correctBtn}`){
+                score.innerHTML = parseInt(score.innerText) + 5;
+                newRound();
+            }
+            else{
+                score.innerHTML = parseInt(score.innerText) - 1;
+                newRound();
+            }
+        });
+    })
+}
+
+startButton.addEventListener('click', () => {
+    for(let k = 0; k < 5; k++){
+        startGame();
+        answerCheck();
+    }
+    endGame();
+    }
+);
