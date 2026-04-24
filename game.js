@@ -9,18 +9,16 @@ const round = document.getElementById('round');
 var correctBtn;
 
 function startGame() {
-    mainFrame.classList.remove('startFrame');
-    mainFrame.classList.add('mainFrame');
+    mainFrame.className = 'grid grid-cols-5 gap-x-4 gap-y-2 p-4 min-h-[20rem]';
     mainFrame.innerHTML = '';
     newRound();
 }
 
 function resetGame(){
-    mainFrame.classList.remove('mainFrame');
-    mainFrame.classList.add('startFrame');
+    mainFrame.className = 'flex items-center justify-center p-6 min-h-[20rem]';
     score.innerText = '0';
     round.innerText = '0';
-    mainFrame.innerHTML = `<button class="startBtn" id="start-game">Start Game</button>`;
+    mainFrame.innerHTML = `<button class="bg-zinc-500 hover:bg-zinc-800 text-white font-bold py-6 px-12 rounded-full" id="start-game">Start Game</button>`;
     document.getElementById('start-game').addEventListener('click', startGame);
 }
 
@@ -28,7 +26,7 @@ function addButtons(){
     mainFrame.innerHTML = ''; // Clears the previous round's buttons
     for(let i = 0; i < 25; i++){
         const button = document.createElement('button');
-        button.classList.add('gameBtn');
+        button.className = 'gameBtn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full';
         button.id = `btn-${i}`;
         button.innerText = 'Push Me!';
         mainFrame.appendChild(button);
@@ -54,9 +52,8 @@ function newRound(){
 }
 
 function endGame(){
-    mainFrame.classList.remove('mainFrame');
-    mainFrame.classList.add('startFrame');
-    mainFrame.innerHTML = `<button class = "startBtn" id = "endGame">End Game</button>`;
+    mainFrame.className = 'flex items-center justify-center p-6 min-h-[20rem]';
+    mainFrame.innerHTML = `<button class="bg-zinc-500 hover:bg-zinc-800 text-white font-bold py-6 px-12 rounded-full" id="endGame">End Game</button>`;
     const endBtn = document.getElementById('endGame');
     endBtn.addEventListener('click', () => {
         resetGame();
@@ -67,7 +64,7 @@ function answerCheck(){
     const btns = document.querySelectorAll('.gameBtn');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            while(btn.id !== `btn-${correctBtn}`){
+            if (btn.id !== `btn-${correctBtn}`) {
                 score.innerText = parseInt(score.innerText) - 1;
                 return;
             }
