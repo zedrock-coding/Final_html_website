@@ -1,5 +1,5 @@
 // This game is gonna be simple, i will place buttons in a grid and in each round the correct button is randomly generated
-//if the player clicks the correct button, they get 5 points, if they click the wrong button, they lose 1 point
+//if the player clicks the correct button, they get 10 points, if they click the wrong button, they lose 1 point
 //This game will be of 5 rounds after which the player can choose to reset the game or not
 const mainFrame = document.getElementById('main-frame');
 const startButton = document.getElementById('start-game');
@@ -68,7 +68,7 @@ function answerCheck(){
                 score.innerText = parseInt(score.innerText) - 1;
                 return;
             }
-            score.innerText = parseInt(score.innerText) + 5;
+            score.innerText = parseInt(score.innerText) + 10;
             newRound();
         });
     })
