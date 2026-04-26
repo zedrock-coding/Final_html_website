@@ -17,10 +17,12 @@
         </nav>
     </header>    
     <main class="grid grid-cols-1 gap-y-10 p-2" >
+        <!-- Welcome section-->
         <section class="container mx-auto px-4 py-8 bg-white-50 dark:bg-gray-800 rounded-lg">
             <h1 class="text-4xl font-bold text-center text-gray-800 dark:text-gray-300">Welcome to my last html website</h1>
             <p class="text-lg text-gray-600 dark:text-gray-400 text-center mt-4">I am going to give my all and present while also learning the best things i can with html, tailwind css and javascript.</p>
         </section>
+        <!-- Image Slideshow section-->
         <section class="container mx-auto px-4 py-8 bg-white-50 dark:bg-gray-800 rounded-lg">
             <h2 class="text-3xl text-bold text-center dark:text-gray-400">A slideshow for showing simple js</h2>
             <div class="relative" data-slide-motion="slide">
@@ -40,10 +42,17 @@
                     <div class="w-full snap-start p-6 duration-1000 ease-in-out">
                         <img src="media/jesko.jpg" alt="jesko" class="w-full h-auto rounded-lg">
                     </div>   
-                </div>                
+                </div>
+                <button type="button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-900 hover:-left-1 transition-all duration-300 ease-in-out text-white p-2 rounded-full" id="prevBtn">
+                    &#10094;
+                </button>
+                <button type="button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 hover:bg-gray-900 hover:-right-1 transition-all duration-300 ease-in-out text-white p-2 rounded-full" id="nextBtn">
+                    &#10095;
+                </button>
             </div>
             
         </section>
+        <!-- Form section-->
         <section class="container mx-auto px-4 py-8 bg-white-50 dark:bg-gray-800 rounded-lg">
             <h2 class="text-3xl text-bold text-center dark:text-gray-400">A simple form with validation.</h2>
             <div class="flex justify-center mt-4 p-2 rounded-lg shadow-lg align-items-center">
@@ -51,29 +60,29 @@
 
                     <!--Username label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
-                        <label for="username" class="rounded-lg bg-mist-700 text-center text-bold" >Username:</label>
-                    <input type="text" name="username" id="username" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                        <label for="username" class="rounded-lg bg-mist-700 text-center font-bold" >Username:</label>
+                    <input type="text" name="username" id="username" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:bg-mist-700 focus:border-black-500 py-4 px-0 mb-4" required>
                     <p class="error hidden text-center text-base text-red-500 py-2" id="username-error"></p>
                     </div>
                     
                     <!--Email label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
-                        <label for="email" class="rounded-lg bg-mist-700 text-center text-bold">Email:</label>
-                    <input type="text" id="email" name="email" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                        <label for="email" class="rounded-lg bg-mist-700 text-center font-bold">Email:</label>
+                    <input type="text" id="email" name="email" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:bg-mist-700 focus:border-black-500 py-4 px-0 mb-4" required>
                     <p class="error hidden text-center text-base text-red-500 py-2" id="email-error"></p>
                     </div>
                     
                     <!--Password label and input-->
                     <div class="grid grid-cols-2 gap-x-4">
-                        <label for="password" class="rounded-lg bg-mist-700 text-center text-bold">Password:</label>
-                    <input type="password" id="password" name="password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                        <label for="password" class="rounded-lg bg-mist-700 text-center font-bold">Password:</label>
+                    <input type="password" id="password" name="password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:bg-mist-700 focus:border-black-500 py-4 px-0 mb-4" required>
                     <p class="error hidden text-center text-base text-red-500 py-2" id="password-error"></p>
                     </div>
 
                     <!--Recheck the Password-->
                     <div class="grid grid-cols-2 gap-x-4">
-                        <label for="confirm-password" class="rounded-lg bg-mist-700 text-center text-bold">Confirm Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:border-black-500 p-[1rem 0] m-[0 0 1rem 0]" required>
+                        <label for="confirm-password" class="rounded-lg bg-mist-700 text-center font-bold">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" class="border-0 rounded-lg bg-mist-700 focus:ring-0 focus:border-b-2 focus:bg-mist-700 focus:border-black-500 py-4 px-0 mb-4" required>
                         <p class="error hidden text-center text-base text-red-500 py-2" id="confirm-password-error"></p>
                     </div>
 
@@ -82,6 +91,7 @@
                 
             </div>
         </section>
+        <!-- Game section-->
         <section class="container mx-auto px-4 py-8 bg-white-50 dark:bg-gray-800 rounded-lg">
             <h2 class="text-3xl text-bold text-center dark:text-gray-400">A simple game</h2>
             <div class="flex justify-center mt-4 p-2 rounded-lg shadow-lg align-items-center">

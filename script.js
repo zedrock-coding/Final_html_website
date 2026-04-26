@@ -4,8 +4,34 @@ const slideDistance = window.screen.width / 1.5;
 slideshow.forEach((slide) => {
     let slideAmount = 0;
     let containerMotion = slide.parentElement.getAttribute('data-slide-motion');
+    const prevBtn = slide.parentElement.querySelector('#prevBtn');
+    const nextBtn = slide.parentElement.querySelector('#nextBtn');
 
     if (containerMotion == "slide") {
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(){
+                if(slideAmount <= 0){
+                    slide.scrollLeft = slide.children.length * slideDistance;
+                    slideAmount = slide.children.length - 1;
+                } else {
+                    slide.scrollLeft -= slideDistance;
+                    slideAmount--;
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(){
+                if (slideAmount >= slide.children.length - 1) {
+                    slide.scrollLeft = 0; 
+                    slideAmount = 0;
+                } else {
+                    slide.scrollLeft += slideDistance;
+                    slideAmount++;
+                }
+            });
+        }
+
       setInterval(function () {
         
         if (slideAmount >= slide.children.length - 1) {
