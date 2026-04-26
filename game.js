@@ -26,7 +26,7 @@ function addButtons(){
     mainFrame.innerHTML = ''; // Clears the previous round's buttons
     for(let i = 0; i < 25; i++){
         const button = document.createElement('button');
-        button.className = 'gameBtn bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full';
+        button.className = 'gameBtn bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-2 rounded-full text-sm md:text-base md:px-4 md:py-4 lg:text-lg lg:px-6 lg:py-6';
         button.id = `btn-${i}`;
         button.innerText = 'Push Me!';
         mainFrame.appendChild(button);
