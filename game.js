@@ -9,7 +9,7 @@ const round = document.getElementById('round');
 var correctBtn;
 
 function startGame() {
-    mainFrame.className = 'grid grid-cols-5 gap-x-4 gap-y-2 p-4 min-h-[20rem]';
+    mainFrame.className = 'grid grid-cols-3 gap-x-4 gap-y-2 p-4 min-h-[20rem] lg:grid-cols-4 lg:gap-x-6 lg:gap-y-4';
     mainFrame.innerHTML = '';
     newRound();
 }
