@@ -50,6 +50,8 @@ const password = document.getElementById('password');
 const email = document.getElementById('email');
 const cnfpassword = document.getElementById('confirm-password');
 const submitBtn = document.getElementById('formbtn');
+const form_info = document.getElementById('form-info');
+const pwdInstructions = document.getElementById('pwd-instructions');
 const form = document.querySelector('form');
 
 const nameError = document.getElementById('username-error');
@@ -128,13 +130,25 @@ function validateUsername(name) {
 
 function validateForm() {
     if (validateUsername(username) && validateEmail(email.value) && validatePassword(password.value)) {
-        alert('Form submitted successfully!');
+        form_info.classList.remove('hidden');
+        form_info.textContent = 'Form submitted successfully!';
         return true;
     }
-    else alert('Form submission failed. Please check your inputs and try again.');
+    else {
+        form_info.classList.remove('hidden');
+        form_info.textContent = 'Please fill in all fields correctly.';
+    }
 }
 
 submitBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    if(validateForm()) {form.reset();};
+    if(validateForm()) {
+        form.reset();
+    };
+});
+password.addEventListener('focus', ()=> {
+    pwdInstructions.classList.remove('hidden');
+})
+password.addEventListener('blur', () => {
+    pwdInstructions.classList.add('hidden');
 });
