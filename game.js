@@ -3,6 +3,7 @@
 //This game will be of 5 rounds after which the player can choose to reset the game or not
 const mainFrame = document.getElementById('main-frame');
 const startButton = document.getElementById('start-game');
+
 const score = document.getElementById('score');
 const round = document.getElementById('round');
 
