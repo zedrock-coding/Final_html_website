@@ -68,10 +68,12 @@ function answerCheck(){
         btn.addEventListener('click', () => {
             if (btn.id !== `btn-${correctBtn}`) {
                 score.innerText = parseInt(score.innerText) - 1;
+                wrongClick.volume = 0.3; 
                 wrongClick.play();
                 return;
             }
             score.innerText = parseInt(score.innerText) + 10;
+            correctClick.volume = 0.3;
             correctClick.play();
             newRound();
         });
