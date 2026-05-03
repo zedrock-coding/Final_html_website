@@ -3,8 +3,6 @@
 //This game will be of 5 rounds after which the player can choose to reset the game or not
 const mainFrame = document.getElementById('main-frame');
 const startButton = document.getElementById('start-game');
-const correctClick = new Audio('media/correct.mp3');
-const wrongClick = new Audio('media/wrong.mp3');
 const score = document.getElementById('score');
 const round = document.getElementById('round');
 
@@ -68,13 +66,9 @@ function answerCheck(){
         btn.addEventListener('click', () => {
             if (btn.id !== `btn-${correctBtn}`) {
                 score.innerText = parseInt(score.innerText) - 1;
-                wrongClick.volume = 0.3; 
-                wrongClick.play();
                 return;
             }
             score.innerText = parseInt(score.innerText) + 10;
-            correctClick.volume = 0.3;
-            correctClick.play();
             newRound();
         });
     })
